@@ -1,8 +1,10 @@
 <template>
      <div class="container p-4 max-w-xl bg-gray-100 rounded-lg shadow-md">
           <div class="space-y-4 mt-16">
-               <div class="title text-center">
-                    <h1 class="text-2xl font-bold text-gray-800">To Do List</h1>
+               <div class="flex justify-center">
+                         <div class="typing-demo">
+                              <h1 >To Do List 😍</h1>
+                         </div>
                </div>
                <div class="flex space-x-2">
                     <input 
@@ -67,20 +69,42 @@
                     <p>Pending names: {{ incompleteCount }}</p>
                </div>
                <hr class="h-0.5 bg-gray-200">
-               <div class="pagination-controls flex justify-between items-center mt-4">
-                    <div class="pagination-buttons space-x-2">
-                         <button v-for="page in totalPages" :key="page" @click="goToPage(page)"
-                              :class="['px-2 py-1 rounded-lg', currentPage === page ? 'bg-blue-500 text-white' : 'bg-gray-200']">
+               <div class="flex justify-between items-center mt-4">
+                    <div class="pagination-buttons space-x-2">   
+                         <div class="flex text-gray-500">
+                              <a
+                                   v-if="currentPage > 1"
+                                   @click="goToPage(currentPage - 1)"
+                                   class="block border rounded-l hover:bg-gray-200 text-gray-500"
+                                   href="#"
+                              >
+                                   <<<
+                              </a>
+                              <button
+                                   v-for="page in totalPages"
+                                   :key="page"
+                                   @click="goToPage(page)"
+                                   :class="['px-1 rounded-lg', currentPage === page ? 'bg-gray-500 text-white' : 'bg-gray-200']"
+                              >
                               {{ page }}
-                         </button>
+                              </button>
+                              <a
+                                   v-if="currentPage < totalPages"
+                                   @click="goToPage(currentPage + 1)"
+                                   class="block border rounded-r hover:bg-gray-200 text-gray-600"
+                                   href="#"
+                                   >
+                                   >>>
+                              </a>
+                         </div>
                     </div>
-                    <div class="items-per-page">
+                    <div class="text-gray-500">
                          <span class="mr-2">Page {{ currentPage }} of {{ totalPages }}</span>
                          <select id="itemsPerPage" v-model="itemsPerPage" @change="saveItemsPerPage"
                               class="border rounded-lg p-1">
-                         <option v-for="option in perPageOptions" :key="option" :value="option">
-                         {{ option }} per page
-                         </option>
+                              <option v-for="option in perPageOptions" :key="option" :value="option">
+                              {{ option }} per page
+                              </option>
                          </select>
 
                     </div>

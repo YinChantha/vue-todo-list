@@ -9,11 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "flowbite": "^2.3.0",
+    "vue": "^3.4.29",
+    "vue-writer": "^2.0.2"
   },
   "devDependencies": {
     "@iconify/vue": "^4.1.2",
     "@types/node": "^20.14.8",
+    "@types/vue-writer": "^1.2.0",
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
