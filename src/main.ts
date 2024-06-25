@@ -5,5 +5,4 @@ import { Icon } from '@iconify/vue'
 
 const app = createApp(App);
 app.component('Icon', Icon)
-app.use(VueWriter);
 app.mount('#app');
