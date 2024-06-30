@@ -9,7 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "flowbite": "^2.3.0",
+    "@primevue/themes": "^4.0.0-rc.2",
+    "primeicons": "^7.0.0",
+    "primevue": "^3.53.0",
+    "tippy.js": "^6.3.7",
     "vue": "^3.4.29"
   },
   "devDependencies": {

@@ -1,14 +1,14 @@
 <template>
   <div id="app" class="flex items-center justify-center min-h-screen bg-green-500">
-    <Name />
+    <Item />
   </div>
 </template>
 
 <script>
-import Name from "./components/Item.vue";
+import Item from "./components/Name/Item.vue";
 export default {
   components: {
-    Name,
+    Item,
   },
 };
 </script>
