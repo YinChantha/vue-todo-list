@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, defineProps, defineEmits } from "vue";
+import { ref, watch } from "vue";
 import Modal from "./ModelUpdate.vue";
 
 const props = defineProps({
