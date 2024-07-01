@@ -117,7 +117,10 @@ const newName = ref<string>("");
 const searchQuery = ref<string>("");
 const selectedFilter = ref<string>("all");
 const names = ref<Name[]>(loadNames());
-const currentPage = ref<number>(loadPaginationSettings().currentPage);
+const currentPage = ref<number>(
+  Math.max(1, loadPaginationSettings().currentPage)
+); // Default to 1
+
 const itemsPerPage = ref<number>(loadPaginationSettings().itemsPerPage);
 const perPageOptions = ref<number[]>(getPerPageOptions());
 const showModal = ref<boolean>(false);
@@ -138,9 +141,10 @@ const filteredNames = computed<Name[]>(() => {
 
 const incompleteCount = computed<number>(() => getIncompleteCount(names.value));
 const completeCount = computed<number>(() => getCompleteCount(names.value));
-const totalPages = computed<number>(() =>
-  Math.ceil(filteredNames.value.length / itemsPerPage.value)
-);
+const totalPages = computed<number>(() => {
+  const pages = Math.ceil(filteredNames.value.length / itemsPerPage.value);
+  return pages > 0 ? pages : 1; // Ensure at least 1 page is displayed
+});
 
 // Functions
 function loadNames(): Name[] {
